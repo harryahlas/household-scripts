@@ -51,3 +51,19 @@ os.mkdir('C:\\tossfolder\\thro\\')
 shutil.copy(src_fpath, dest_fpath)
 
 
+#copy from alternate folder
+# Copy missing files
+dir_alt = "D:/Music/"
+write_log = []
+for missing_file in missing_files[25:89]:
+    
+    missing_file_alt_path = dir_alt + missing_file
+    write_log.append(missing_file_alt_path + " exists? " + str(os.path.exists(missing_file_alt_path)))
+    if os.path.exists(missing_file_alt_path):
+        print("made it to" + missing_file_alt_path)
+        missing_file_to_path = dir_to + missing_file
+        os.makedirs(os.path.dirname(missing_file_to_path), exist_ok=True) # Create folder if it doesn't exist
+        shutil.copy(missing_file_alt_path, missing_file_to_path)
+    else:
+        print("skipping" + missing_file_alt_path)
+        

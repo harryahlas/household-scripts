@@ -30,3 +30,7 @@ getDirectorySize(sub_directories[8])
 
 
 getDirectorySize("C:\\ProgramData\\Steinberg\\")
+
+
+
+getDirectorySize("C:\\Program Files/")

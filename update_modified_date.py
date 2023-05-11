@@ -14,7 +14,7 @@ def change_file_time(path, newtime):
 
     # Get the current file times
     handle = win32file.CreateFile(
-        path, win32con.FILE_WRITE_ATTRIBUTES, 0, None, win32con.OPEN_EXISTING,
+        path, win32con.GENERIC_WRITE, 0, None, win32con.OPEN_EXISTING,
         win32con.FILE_ATTRIBUTE_NORMAL, None)
 
     # Change the last modified time

@@ -1,14 +1,16 @@
 import os
+import time
 import pywintypes
 import win32file
 import win32con
-import time
+
+def convert_to_filetime(dt):
+    # Converts datetime to windows file time
+    microseconds = int(time.mktime(dt.timetuple())) * 1e6
+    return int(microseconds + 11644473600000000)  # Adding difference between 1970 and 1601
 
 def change_file_time(path, newtime):
-    # Convert the timestamp to Windows FILETIME
-    newtime = int(time.mktime(newtime.timetuple()))
-    newfiletime = pywintypes.Time(newtime).timetuple()
-    newfiletime = win32file.SystemTimeToDateTime(newfiletime)
+    newfiletime = convert_to_filetime(newtime)
 
     # Get the current file times
     handle = win32file.CreateFile(
@@ -16,7 +18,8 @@ def change_file_time(path, newtime):
         win32con.FILE_ATTRIBUTE_NORMAL, None)
 
     # Change the last modified time
-    win32file.SetFileTime(handle, newfiletime, newfiletime, newfiletime)
+    win32file.SetFileTime(handle, None, None, pywintypes.FileTime(newfiletime))
+
     handle.Close()
 
 def change_files_in_folder(folder_path, new_time):

@@ -1,0 +1,45 @@
+# Specify the path to your file here
+$file_path = "D:\Development\powershell\reminders.txt"
+$stop_file = "stop.txt"
+
+# Read lines from file
+$lines = Get-Content $file_path
+
+# Use a counter to track the current line
+$count = 0
+
+# Loop infinitely
+while($true)
+{
+    # If the stop file exists, exit the script
+    if (Test-Path $stop_file) {
+        Remove-Item $stop_file -ErrorAction SilentlyContinue
+        exit
+    }
+
+    # Get the current line and show it as a notification
+    $current_line = $lines[$count]
+    $notification = [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime]
+    $template = $notification::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText02)
+
+    #Fill in text elements
+    $textNodes = $template.GetElementsByTagName("text")
+    $textNodes[0].AppendChild($template.CreateTextNode("Notification"))
+    $textNodes[1].AppendChild($template.CreateTextNode($current_line))
+
+    #Create and display the notification
+    $toast = [Windows.UI.Notifications.ToastNotification]::new($template)
+    $notifier = $notification::CreateToastNotifier("Powershell Script")
+    $notifier.Show($toast);    
+
+    # Wait for a while before showing the next notification
+    Start-Sleep -Seconds (2*60*60) # adjust this for the interval you want
+
+    # Move to the next line
+    $count++
+
+    # If we've reached the end of the lines, start over
+    if ($count -ge $lines.Count) {
+        $count = 0
+    }
+}

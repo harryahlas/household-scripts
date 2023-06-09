@@ -33,7 +33,7 @@ while($true)
     $notifier.Show($toast);    
 
     # Wait for a while before showing the next notification
-    Start-Sleep -Seconds (2*60*60) # adjust this for the interval you want
+    Start-Sleep -Seconds (1*3*60) # adjust this for the interval you want
 
     # Move to the next line
     $count++

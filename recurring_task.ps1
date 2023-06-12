@@ -1,3 +1,6 @@
+
+# cd 'folder that houses this script'
+# ./recurring_task.ps1
 # Specify the path to your file here
 $file_path = "D:\Development\powershell\reminders.txt"
 $stop_file = "stop.txt"

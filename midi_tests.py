@@ -2,7 +2,7 @@
 import csv
 import mido
 from mido import MidiFile
-
+mid = MidiFile('D:\\MusicProduction\\\mixes\\Cloven Hooves\\Audio\\cloven_hooves_drums.mid')
 mid = MidiFile('D:\\MusicProduction\\mixes\\NailtheMix_November2022_AAL_RedMiso_48k32b\\00 Synths Midi.mid')
 bpm = mid.ticks_per_beat
 

@@ -12,3 +12,4 @@ Otero: Try on master boosting a cool freq in pro q 3 then split into L/R and cha
 On C4/C6 OR proq3 - use sneap compression ONLY on palm mutes. So find a PM spot and do the eq there - it really shouldn't be working on other spots so much. 170-220 usually. Use invert gain for this.
 Keep pick attack in when editing! Set nudge at 1/128 or 1/64 and use that instead of dragging left after cut.  See what nudge shortcut is.  Pick attack and transient should happen before gridline.
 Vocal tuning: Don't tune the transient of syllables - Yes less tuning on the start of the note often
+Output 1-4 on scarlett is lower output for monitors. Use 5-8 for reamping.

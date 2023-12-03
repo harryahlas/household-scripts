@@ -1,0 +1,14 @@
+Less tension in left hand just tap feet and worry about timing <a href='D:\MusicProduction\127v2'>D:\MusicProduction\127v2 test link</a>
+Irs thing jens/kick/bass teeth/pick <a href='D:\MusicProduction\127v2'>D:\MusicProduction\127v2 test link</a>
+For stamina, play at 160-180 for a long time, softly, Play serpent at 160 4x in a row <a href='D:\MusicProduction\127v2'>D:\MusicProduction\127v2 test link</a>
+Jens -Does kick duck sidechain using most stable kick, usually a sample. Compressor type doesn't really matter. Has like 2-4 dbs of reduction. Attack is slower than you would think, 500 ms. Fast release <a href='D:\MusicProduction\127v2'>D:\MusicProduction\127v2 test link</a>
+Use different Irs on L and R to avoid fatigue (jens) <a href='D:\MusicProduction\127v2'>D:\MusicProduction\127v2 test link</a>
+Mb2 has good guitar tone. But the audio gridder version has ampknob which is considerably better, need to use this as a template. And remember to make left and right IRs different. 
+Intonation: tune the string using the 12th fret harmonic. Then finger the twelfth fret. If it is sharp then you need to increase the distance (move the bridge further away, turn screw clockwise).  If it is flat then you need to decrease the distance (move the bridge closer)
+On riffs that are heavy but also intricate, leave the palm mutes at normal level but automate the clean/intricate parts so that their volume is lower going into the reamp!
+When tracking guitars: record through right speaker, where guitarist is sitting. And if you already have a track recorded, play it through the left speaker. Guitarist should be near right speaker.  Make sure you think about the volume balance between the two.
+Jens: When you amp the bass, the amp cuts out both the highs and the subs. So adding a DI track can be used to increase the SUBS. You do NOT need to do this every time.
+Otero: Try on master boosting a cool freq in pro q 3 then split into L/R and change the frequencies by maybe .5k or something small...will add width. He tried it on the spot and really liked it. 
+On C4/C6 OR proq3 - use sneap compression ONLY on palm mutes. So find a PM spot and do the eq there - it really shouldn't be working on other spots so much. 170-220 usually. Use invert gain for this.
+Keep pick attack in when editing! Set nudge at 1/128 or 1/64 and use that instead of dragging left after cut.  See what nudge shortcut is.  Pick attack and transient should happen before gridline.
+Vocal tuning: Don't tune the transient of syllables - Yes less tuning on the start of the note often

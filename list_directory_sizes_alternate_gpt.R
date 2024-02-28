@@ -8,14 +8,30 @@ list_dirs <- function(path, max_depth = 3, current_depth = 1) {
     return(NULL)
   }
   
-  dirs <- fs::dir_ls(path, type = "directory")
+  dirs <- tryCatch({
+    fs::dir_ls(path, type = "directory")
+  }, error = function(e) {
+    message("Error accessing ", path, ": ", e$message)
+    return(NULL)
+  })
+  
+  if (is.null(dirs)) return(NULL)
+  
   deeper_dirs <- lapply(dirs, function(d) list_dirs(d, max_depth, current_depth + 1))
   return(c(dirs, unlist(deeper_dirs)))
 }
 
 # Function to calculate the size of a directory
 calc_dir_size <- function(dir_path) {
-  files <- fs::dir_ls(dir_path, recurse = TRUE, type = "file")
+  files <- tryCatch({
+    fs::dir_ls(dir_path, recurse = TRUE, type = "file")
+  }, error = function(e) {
+    message("Error processing ", dir_path, ": ", e$message)
+    return(NULL)
+  })
+  
+  if (is.null(files)) return(0)
+  
   total_size <- sum(fs::file_info(files)$size)
   return(total_size)
 }
@@ -24,7 +40,7 @@ calc_dir_size <- function(dir_path) {
 dirs <- list_dirs("C:/", max_depth = 3)
 
 # Calculate sizes and filter directories greater than 1GB (1GB = 1e9 bytes)
-large_dirs <- sapply(dirs, calc_dir_size)
+large_dirs <- sapply(dirs, calc_dir_size, simplify = "array", USE.NAMES = TRUE)
 large_dirs <- large_dirs[large_dirs > 1e9]
 
 # Create a data frame

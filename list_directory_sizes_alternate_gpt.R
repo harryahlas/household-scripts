@@ -23,7 +23,7 @@ list_dirs <- function(path, max_depth = 3, current_depth = 1) {
   return(c(dirs, unlist(deeper_dirs)))
 }
 
-# Function to calculate the size of a directory, skipping over inaccessible files/folders
+# Function to calculate the size of a directory, catching errors for each file
 calc_dir_size <- function(dir_path) {
   files <- tryCatch({
     fs::dir_ls(dir_path, recurse = TRUE, type = "file")
@@ -32,9 +32,17 @@ calc_dir_size <- function(dir_path) {
     return(character(0)) # Return an empty character vector if error
   })
   
-  if (length(files) == 0) return(0)
+  total_size <- 0
+  for (file_path in files) {
+    file_size <- tryCatch({
+      fs::file_info(file_path)$size
+    }, error = function(e) {
+      message("Skipping inaccessible file: ", file_path)
+      return(0) # Return 0 size if error
+    })
+    total_size <- total_size + file_size
+  }
   
-  total_size <- sum(fs::file_info(files)$size, na.rm = TRUE)
   return(total_size)
 }
 

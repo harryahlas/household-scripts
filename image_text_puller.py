@@ -3,10 +3,10 @@ from PIL import Image
 import pytesseract
 
 # Specify the path to the folder containing the JPG files
-folder_path = 'sample_images'
+folder_path = 'D:\github\household-scripts\sample_images'
 
 # Specify the path to the Tesseract executable if it's not in your PATH #
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'D:\SoftwareInstalls\tesseract\tesseract.exe'
 
 # Open the output file in write mode
 with open('output.txt', 'w', encoding='utf-8') as output_file:

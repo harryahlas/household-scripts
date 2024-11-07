@@ -13,3 +13,8 @@ On C4/C6 OR proq3 - use sneap compression ONLY on palm mutes. So find a PM spot 
 Keep pick attack in when editing! Set nudge at 1/128 or 1/64 and use that instead of dragging left after cut.  See what nudge shortcut is.  Pick attack and transient should happen before gridline.
 Vocal tuning: Don't tune the transient of syllables - Yes less tuning on the start of the note often
 Output 1-4 on scarlett is lower output for monitors. Use 5-8 for reamping.
+Jens Vocals: Use deesser before delay!!... If you only have 1 vocal track then make a copy and downpitch the 2nd one.  
+Jens: During slow parts put more distortion on the ambient snare sample and turn it up
+MIDI recording in Cubase: mute other takes when recording to avoid dropouts
+Phil Pluskota - Tg2 chandler pre for guitars... Try ts with weird settings to calm low end, small drive but tone all the way up etc, change level...Dark part of cone but use HP to get highs back
+Phil Pluskota - try these: Boost 4-6 k, 2-3 db, but then do a 7k LP...On recto, lots of fizz, ok to boost certain frequencies to pick the right one – think NM... Try transient desgnr, blast transient and sustain (maybe negative sustain?)

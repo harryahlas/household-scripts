@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metronome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        .lever {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+        .lever input {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Metronome</h1>
+    <div class="controls">
+        <label for="bpm">BPM:</label>
+        <input type="number" id="bpm" value="120" min="30" max="300">
+        <input type="range" id="bpm-slider" value="120" min="30" max="300">
+    </div>
+    <div class="lever">
+        <label for="note-mode">Note Mode:</label>
+        <select id="note-mode">
+            <option value="1">Quarter Notes</option>
+            <option value="0.75">3/4 Notes</option>
+        </select>
+    </div>
+    <button id="start-stop">Start</button>
+    <p id="click"></p>
+
+    <script>
+        const bpmInput = document.getElementById('bpm');
+        const bpmSlider = document.getElementById('bpm-slider');
+        const noteMode = document.getElementById('note-mode');
+        const startStopButton = document.getElementById('start-stop');
+        const clickIndicator = document.getElementById('click');
+
+        let intervalId = null;
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound() {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(880, audioContext.currentTime);
+
+            gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        function updateBpm(value) {
+            bpmInput.value = value;
+            bpmSlider.value = value;
+        }
+
+        bpmInput.addEventListener('input', (e) => updateBpm(e.target.value));
+        bpmSlider.addEventListener('input', (e) => updateBpm(e.target.value));
+
+        document.addEventListener('keydown', (e) => {
+            let currentBpm = parseInt(bpmInput.value);
+            if (e.key === 'ArrowUp') {
+                currentBpm = Math.min(currentBpm + 10, 300);
+                updateBpm(currentBpm);
+            } else if (e.key === 'ArrowDown') {
+                currentBpm = Math.max(currentBpm - 10, 30);
+                updateBpm(currentBpm);
+            }
+        });
+
+        function startMetronome() {
+            const bpm = parseInt(bpmInput.value);
+            const interval = (60000 / bpm) * parseFloat(noteMode.value);
+            intervalId = setInterval(playSound, interval);
+        }
+
+        function stopMetronome() {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+
+        startStopButton.addEventListener('click', () => {
+            if (intervalId) {
+                stopMetronome();
+                startStopButton.textContent = 'Start';
+            } else {
+                startMetronome();
+                startStopButton.textContent = 'Stop';
+            }
+        });
+    </script>
+</body>
+</html>

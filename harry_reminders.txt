@@ -18,3 +18,6 @@ Jens: During slow parts put more distortion on the ambient snare sample and turn
 MIDI recording in Cubase: mute other takes when recording to avoid dropouts
 Phil Pluskota - Tg2 chandler pre for guitars... Try ts with weird settings to calm low end, small drive but tone all the way up etc, change level...Dark part of cone but use HP to get highs back
 Phil Pluskota - try these: Boost 4-6 k, 2-3 db, but then do a 7k LP...On recto, lots of fizz, ok to boost certain frequencies to pick the right one – think NM... Try transient desgnr, blast transient and sustain (maybe negative sustain?)
+Jens: Apparently the C1 compressor is clean like the Pro C from fab filter - so ok to use the C1
+for monitor issues try uninstalling the driver from device manager for the monitor, then run "msdt.exe -id DeviceDiagnostic"
+Otero: when trying out different drum compression, especially snare, do a fairly slow attack and smash it to hell and see how it reacts. This will show you the character of the compressor.

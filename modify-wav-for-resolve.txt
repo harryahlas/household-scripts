@@ -5,3 +5,6 @@ Download sox here: https://sourceforge.net/projects/sox/
 Run this in cmd in the folder of the audio file. The first file is the old file.  The second is the modified one.
 
 sox "Civil Whore_EQ250404_441-16.wav" -b 16 -c 2 -r 44100 "CivilWhore_CLEAN3.wav"
+
+
+Youtube video showing how to add sound visualizer: https://www.youtube.com/watch?v=1XFJhHy5C_0
